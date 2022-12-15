@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   Box,
   Flex,
@@ -17,6 +18,9 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
+import { registerUser } from "../Redux/AuthReducer/action";
+import { REGISTER_USER_SUCCESS } from "../Redux/AuthReducer/actionType";
 
 const avatars = [
   {
@@ -45,6 +49,37 @@ export default function Register() {
   const [show, setShow] = useState(false);
   const handleClick = () => setShow(!show);
 
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleOnSubmit = () => {
+    // will handle error handling if any details are not filled.
+    if (name === "" || email === "" || password === "") {
+      alert("Please Fill All Data....");
+    }
+    if (name && email && password) {
+      let payload;
+      payload = {
+        name,
+        email,
+        password,
+      };
+      dispatch(registerUser(payload)).then((res) => {
+        if (res === REGISTER_USER_SUCCESS) {
+          alert("User sucessfully registed");
+          navigate("/signin", { replace: true });
+        }
+        // will check for already registered user.
+        else {
+          alert("User is Already registered");
+        }
+      });
+    }
+  };
+
   return (
     <Box position={"relative"}>
       <Container
@@ -52,7 +87,7 @@ export default function Register() {
         maxW={"7xl"}
         columns={{ base: 1, md: 2 }}
         spacing={{ base: 10, lg: 32 }}
-        py={{ base: 10, sm: 20, lg: 32 }}
+        py={{ base: 10, sm: 8, lg: 7 }}
       >
         <Stack spacing={{ base: 10, md: 20 }}>
           <Heading
@@ -154,10 +189,11 @@ export default function Register() {
               our rockstar Blogging team and skyrocket your career!
             </Text>
           </Stack>
-          <Box as={"form"} mt={10}>
+          <Box as={"form"}>
             <Stack spacing={4}>
-              <br />
               <Input
+                onChange={(e) => setName(e.target.value)}
+                value={name}
                 placeholder="Name"
                 bg={"gray.100"}
                 border={0}
@@ -168,6 +204,8 @@ export default function Register() {
               />
               <br />
               <Input
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email"
                 bg={"gray.100"}
                 border={0}
@@ -179,6 +217,8 @@ export default function Register() {
               <br />
               <InputGroup size="md">
                 <Input
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   bg={"gray.100"}
                   pr="4.5rem"
                   type={show ? "text" : "password"}
@@ -192,6 +232,7 @@ export default function Register() {
               </InputGroup>
             </Stack>
             <Button
+              onClick={handleOnSubmit}
               fontFamily={"heading"}
               mt={8}
               w={"full"}

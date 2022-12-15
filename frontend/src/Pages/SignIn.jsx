@@ -1,6 +1,6 @@
+import React, { useState } from "react";
 import {
   Button,
-  Checkbox,
   Flex,
   FormControl,
   FormLabel,
@@ -9,12 +9,43 @@ import {
   Link,
   Stack,
   Image,
-  Box,
   Text,
   Spacer,
 } from "@chakra-ui/react";
+import { useDispatch } from "react-redux";
+import { useLocation, useNavigate } from "react-router-dom";
+import { loginUser } from "../Redux/AuthReducer/action";
+import { LOGIN_USER_SUCCESS } from "../Redux/AuthReducer/actionType";
 
 export default function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const comingfrom = location.state?.from?.pathname || "/";
+
+  const handleOnSignIn = () => {
+    if (email === "" || password === "") {
+      alert("Please Fill All Credentials....");
+    }
+    if (email && password) {
+      let payload;
+      payload = {
+        email,
+        password,
+      };
+      dispatch(loginUser(payload)).then((res) => {
+        if (res === LOGIN_USER_SUCCESS) {
+          alert("Login Sucessfully");
+          navigate(comingfrom, { replace: true });
+        } else {
+          alert("WRONG CREDENTIALS......");
+        }
+      });
+    }
+  };
+
   return (
     <Stack minH={"100vh"} direction={{ base: "column", md: "row" }}>
       <Flex p={8} flex={1} align={"center"} justify={"center"}>
@@ -25,11 +56,19 @@ export default function SignIn() {
           <br />
           <FormControl id="email">
             <FormLabel>Email address</FormLabel>
-            <Input type="email" />
+            <Input
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              type="email"
+            />
           </FormControl>
           <FormControl id="password">
             <FormLabel>Password</FormLabel>
-            <Input type="password" />
+            <Input
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              type="password"
+            />
           </FormControl>
           <Stack spacing={6}>
             <Stack
@@ -44,7 +83,11 @@ export default function SignIn() {
                 <Link color={"blue.500"}>Register</Link>
               </Flex>
             </Stack>
-            <Button colorScheme={"blue"} variant={"solid"}>
+            <Button
+              onClick={handleOnSignIn}
+              colorScheme={"blue"}
+              variant={"solid"}
+            >
               Sign in
             </Button>
           </Stack>

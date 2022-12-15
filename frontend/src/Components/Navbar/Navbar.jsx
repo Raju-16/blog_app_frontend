@@ -18,8 +18,8 @@ const Navbar = () => {
         <Link to={"/addblog"}>
           <li className="addblog">Write Blog</li>
         </Link>
-        <Link to={"/myblogs"}>
-          <li className="myblogs">My blogs</li>
+        <Link to={"/userblogs"}>
+          <li className="myblogs">User blogs</li>
         </Link>
         <Link to={"/signin"}>
           <li className="signin">SignIn</li>
