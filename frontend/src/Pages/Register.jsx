@@ -61,8 +61,7 @@ export default function Register() {
       alert("Please Fill All Data....");
     }
     if (name && email && password) {
-      let payload;
-      payload = {
+      let payload = {
         name,
         email,
         password,
@@ -111,7 +110,7 @@ export default function Register() {
                   key={avatar.name}
                   name={avatar.name}
                   src={avatar.url}
-                  //   size={useBreakpointValue({ base: "md", md: "lg" })}
+                  size={{ base: "md", md: "lg" }}
                   position={"relative"}
                   zIndex={2}
                   _before={{

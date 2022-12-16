@@ -27,7 +27,7 @@ const AllBlogs = () => {
       {blogs.length > 0 &&
         blogs.map((item) => {
           return (
-            <Link to={`/blogdetail/${item._id}`}>
+            <Link to={`/blogdetail/${item._id}`} key={item._id}>
               <BlogCard item={item} />
             </Link>
           );

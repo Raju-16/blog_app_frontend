@@ -28,3 +28,8 @@ export const loginUser = (payload) => (dispatch) => {
       return types.LOGIN_USER_FAILURE;
     });
 };
+
+export const logOut = () => (dispatch) => {
+  dispatch({ type: types.USER_LOGOUT });
+  return types.USER_LOGOUT;
+};

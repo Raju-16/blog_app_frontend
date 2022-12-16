@@ -18,6 +18,7 @@ const Filter_Sort = () => {
   const [category, setCategory] = useState(urlCategory || []);
   const [sort, setSort] = useState(urlSort || "");
 
+  console.log("CATEGory", category);
 
   const handleFilter = (e) => {
     // console.log(e.target.value);

@@ -1,58 +1,42 @@
-import {
-  Box,
-  Image,
-  Center,
-  Heading,
-  Text,
-  Stack,
-  Avatar,
-  useColorModeValue,
-  Flex,
-} from "@chakra-ui/react";
+import { Box, Image, Heading, Text, Flex } from "@chakra-ui/react";
 import { Link, useNavigate } from "react-router-dom";
 import { EditIcon, DeleteIcon } from "@chakra-ui/icons";
 import { useDispatch, useSelector } from "react-redux";
-// import {
-//   deleteUserBlog,
-//   getAllBlogList,
-//   getBlogByIdList,
-//   getBlogsByUserList,
-// } from "../Redux/AppReducer/action";
-// import {
-//   DELETE_USERBLOGLIST_SUCESS,
-//   GET_USERBLOGLIST_SUCESS,
-// } from "../Redux/AppReducer/actionType";
+import {
+  deleteBlog,
+  getAllBlogs,
+  userAllBlogs,
+} from "../Redux/AppReducer/action";
+import {
+  DELETE_BLOG_SUCCESS,
+  GET_ALL_BLOGS_SUCCESS,
+} from "../Redux/AppReducer/actionType";
 
 const UserBlogCard = ({ item }) => {
-  const userconslerdata = useSelector((state) =>
-    console.log(state.AuthReducer.user)
-  );
   const userId = useSelector((state) => state.AuthReducer.user.user._id);
   const name = useSelector((state) => state.AuthReducer.user.user.name);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // Delete Process starts here
+  const handleDelete = (id) => {
+    dispatch(deleteBlog(id)).then((res) => {
+      console.log(res, "res");
+      // here we need userid as well to fecth data or after deleting need to see the deleted data
+      if (res === DELETE_BLOG_SUCCESS) {
+        // get users's particular blog after deletion.
+        dispatch(userAllBlogs(userId)).then((res) => {
+          console.log(res, "res22");
+          if (res === GET_ALL_BLOGS_SUCCESS) {
+            // get all blogs after deletion.
+            dispatch(getAllBlogs());
+          }
+        });
 
-  // do delete here.
-  //   const handleDelete = (id) => {
-  //     // console.log(id,"idd to")
-  //     dispatch(deleteUserBlog(id)).then((res) => {
-  //       console.log(res, "res");
-  //       // here we need userid as well to fecth data or after deleting need to see the deleted data
-  //       if (res === DELETE_USERBLOGLIST_SUCESS) {
-  //         // get users's particular blog after deletion.
-  //         dispatch(getBlogsByUserList(userId)).then((res) => {
-  //           console.log(res, "res22");
-  //           if (res === GET_USERBLOGLIST_SUCESS) {
-  //             // get all blogs after deletion.
-  //             dispatch(getAllBlogList());
-  //           }
-  //         });
-
-  //         navigate("/", { replace: true });
-  //       }
-  //     });
-  //   };
+        navigate("/", { replace: true });
+      }
+    });
+  };
 
   return (
     <Box
@@ -81,12 +65,12 @@ const UserBlogCard = ({ item }) => {
         mt={"4%"}
         justifyContent={"space-between"}
       >
-        <Link to={`/editpage/${item._id}`}>
+        <Link to={`/edit/${item._id}`}>
           <EditIcon fontSize={"30px"} color={"green.800"} />
         </Link>
         <DeleteIcon
           fontSize={"30px"}
-          //   onClick={(e) => handleDelete(item._id)}
+          onClick={(e) => handleDelete(item._id)}
           color={"green.800"}
         />
       </Flex>

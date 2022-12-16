@@ -5,19 +5,28 @@ import {
   FormControl,
   FormLabel,
   Input,
+  NumberDecrementStepper,
+  NumberIncrementStepper,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
   Select,
   Textarea,
 } from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
-import { addBlog, getAllBlogs, userAllBlogs } from "../Redux/AppReducer/action";
+import {
+  editBlog,
+  getAllBlogs,
+  userAllBlogs,
+} from "../Redux/AppReducer/action";
 import { useDispatch, useSelector } from "react-redux";
 import {
-  ADD_BLOG_SUCCESS,
+  EDIT_BLOG_SUCCESS,
   GET_ALL_BLOGS_SUCCESS,
   USER_ALL_BLOGS_SUCCESS,
 } from "../Redux/AppReducer/actionType";
 
-const AddBlog = () => {
+const EditBlog = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
@@ -30,20 +39,13 @@ const AddBlog = () => {
 
   console.log(title, category, description, minRead, author, image);
   // this user needs because after post we will fetch all blogs and login user blog fectch
-  const userID = useSelector((state) => state.AuthReducer.user.user._id);
+  const userId = useSelector((state) => state.AuthReducer.user.user._id);
 
-  const handleOnAdd = () => {
-    console.log("response");
-    console.log(title, category, description, minRead, author, image, userID);
-    if (
-      title &&
-      category &&
-      description &&
-      minRead &&
-      author &&
-      image &&
-      userID
-    ) {
+  const handleOnEdit = () => {
+    // console.log("hi");
+    // console.log(title, category, description, minRead, author, image, id);
+    // console.log("hi");
+    if (title && category && description && minRead && author && image && id) {
       let payload = {
         title,
         category,
@@ -51,14 +53,13 @@ const AddBlog = () => {
         minRead,
         author,
         image,
-        userID,
       };
-      dispatch(addBlog(payload)).then((res) => {
+      dispatch(editBlog(id, payload)).then((res) => {
         console.log(res, "res here");
-        if (res === ADD_BLOG_SUCCESS) {
+        if (res === EDIT_BLOG_SUCCESS) {
           dispatch(getAllBlogs()).then((res) => {
             if (res === GET_ALL_BLOGS_SUCCESS) {
-              dispatch(userAllBlogs(userID)).then((res) => {
+              dispatch(userAllBlogs(userId)).then((res) => {
                 if (res === USER_ALL_BLOGS_SUCCESS) {
                   navigate("/", { replace: true });
                 }
@@ -138,10 +139,10 @@ const AddBlog = () => {
           placeholder="Author"
         />
 
-        <Button onClick={handleOnAdd}>Submit</Button>
+        <Button onClick={handleOnEdit}>Submit</Button>
       </FormControl>
     </Box>
   );
 };
 
-export default AddBlog;
+export default EditBlog;
