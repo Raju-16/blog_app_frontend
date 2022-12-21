@@ -6,24 +6,13 @@
     ## Tech Stack :
 
     The tech stack I used to build this App:-
-
-    <div style="display: flex; align-items: center;"><img src="https://cdn-icons-png.flaticon.com/512/226/226269.png"
-            width=20 /> <span>HTML</span></div>
-
-    <div style="display: flex; align-items: center;"><img src="https://cdn-icons-png.flaticon.com/512/732/732190.png"
-            width=20 /> <span>CSS</span></div>
-    <div style="display: flex; align-items: center;"><img src="https://cdn-icons-png.flaticon.com/512/1199/1199124.png"
-            width=20 /> <span>JavaScript</span></div>
-    <div style="display: flex; align-items: center;"><img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDBz9g9mkTQyQZxAmOQ03R4L962dqCUdztjCSl79fYkQ&s"
-            width=20 /> <span>React</span></div>
-    <div style="display: flex; align-items: center;"><img
-            src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/redux-icon.png"
-            width=20 />
-        <span>Redux</span>
-    </div>
-
-
+    
+    <img src="https://cdn-icons-png.flaticon.com/512/226/226269.png" width=20 /> <span>HTML</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" width=20 /> <span>CSS</span>
+    <img src="https://cdn-icons-png.flaticon.com/512/1199/1199124.png" width=20 /> <span>JavaScript</span>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDBz9g9mkTQyQZxAmOQ03R4L962dqCUdztjCSl79fYkQ&s" width=20 /><span>React</span>
+    <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/redux-icon.png" width=20 /><span>Redux</span>
+    
     ## Blog Page :
     This is the landing page of this website you can read the blogs that an another user write their vision on some perticular topics.
 
@@ -76,3 +65,4 @@
 
     ## Deploy Link :
     put you right link here--->
+    
