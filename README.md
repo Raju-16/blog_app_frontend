@@ -1,4 +1,4 @@
-#IndIanBlog
+    ##IndIanBlog
 
     This App is for users who is interested in write the blogs and reading the blogs.
 
@@ -24,58 +24,43 @@
     </div>
 
 
+    ## Blog Page :
+    This is the landing page of this website you can read the blogs that an another user write their vision on some perticular topics.
+
+    ![Blog_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Home.png?raw=true)
 
 
-
-
-
-
-
-
-    ## Home Page :
-    This is the landing page of this app you will redirect to login page.
-
-    ![Home_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Home.png?raw=true)
+    ## Register Page :
+    If user also want to write an article and share own thought about any topic then user must have an account.
+    ![Sign_page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
 
 
     ## Login Page :
-
-    The user can Loggedin by entering their username and password.
-
+    If user have an account then user can go to the login page and put their credentials email and password.
     ![Login_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
 
-    After log in, you will move to the Poll page of the Dishes.
+    After log in, you will move to the Blog page and you can see all the blogs.
 
-    ## Poll Page :
+    ## BlogDetails Page :
+    If user want to read any perticular blog then user can go details page.
+    ![BlogDetail_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
 
-    After submitting the user Id password the user will navigate to the poll page section here you can able two
-    sections.
-    In the left section, you can see the dish, and in another section(right) you can able to vote for your's favourite
-    dish
-    in the lish form you have to select one and submit.
+    ## User Blog page
+    After login with right credentials user can also see their posted blogs
+    ![UserBlog_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
 
-    ![Poll_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Poll_page.png?raw=true)
+    ## Add the blogs
+    After login user also be able to post their new blogs and also able to delete and edit their posted blog in the past
+    ![PostBlog_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
 
-
-    ## Result Page :
-    I have added the Result Page section to the navbar. On the result page, you can able to see two sections.
-    In the left section, you can see the list of dishes that are selected by you or someone else. in another
-    section(right)
-    you can able to edit your choice if you want to change the dish which you selected previously and then submit the
-    new
-    selected dish.
-
-    ![Result_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Resul_page.png?raw=true)
-
-
+    
     ## App flow :
     1. npm install
-    2. npm install -g json server to start local user.json for log-in.
-    4. npm run server to run a local server.
-    3. npm start to run react app.
-    5. Enter your username and Password for Login.
-    6. Select your 3 favorite dishes (which you like the most) with the help of List.
-    7. If user wants to edit their favorite dish then that user is able to edit that choice and vote for that.
+    2. npm start to run react app.
+    3. You can able to read the blogs. But if you want to explore more about the website then follow the next step.
+    4. Register yourself and then login with that credentials.
+    5. After successfully login you will also see you post.
+    6. After successfully login you will also able delete and edit your previous post.
 
 
     ## Responsive :
@@ -87,8 +72,7 @@
 
 
     ## Dish Poll App :
-    https://github.com/Raju-16/react-dishpoll/tree/main/dishpoll
-
+    put you right link here--->
 
     ## Deploy Link :
-    https://raju-dishvoting-food.netlify.app
+    put you right link here--->
