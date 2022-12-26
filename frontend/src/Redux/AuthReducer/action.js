@@ -4,7 +4,7 @@ import axios from "axios";
 export const registerUser = (payload) => (dispatch) => {
   dispatch({ type: types.REGISTER_USER_REQUEST });
   return axios
-    .post("https://lime-strange-boa.cyclic.app/signup", payload)
+    .post("https://chartreuse-green-badger-coat.cyclic.app/signup", payload)
     .then((res) => {
       dispatch({ type: types.REGISTER_USER_SUCCESS });
       return types.REGISTER_USER_SUCCESS;
@@ -18,7 +18,7 @@ export const registerUser = (payload) => (dispatch) => {
 export const loginUser = (payload) => (dispatch) => {
   dispatch({ type: types.LOGIN_USER_REQUEST });
   return axios
-    .post("https://lime-strange-boa.cyclic.app/login", payload)
+    .post("https://chartreuse-green-badger-coat.cyclic.app/login", payload)
     .then((res) => {
       dispatch({ type: types.LOGIN_USER_SUCCESS, payload: res.data });
       return types.LOGIN_USER_SUCCESS;

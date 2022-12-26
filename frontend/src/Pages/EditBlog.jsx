@@ -39,27 +39,25 @@ const EditBlog = () => {
 
   console.log(title, category, description, minRead, author, image);
   // this user needs because after post we will fetch all blogs and login user blog fectch
-  const userId = useSelector((state) => state.AuthReducer.user.user._id);
+  const userID = useSelector((state) => state.AuthReducer.user.user._id);
 
   const handleOnEdit = () => {
-    // console.log("hi");
-    // console.log(title, category, description, minRead, author, image, id);
-    // console.log("hi");
     if (title && category && description && minRead && author && image && id) {
-      let payload = {
-        title,
-        category,
-        description,
-        minRead,
-        author,
-        image,
-      };
-      dispatch(editBlog(id, payload)).then((res) => {
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("category", category);
+      formData.append("description", description);
+      formData.append("minRead", minRead);
+      formData.append("author", author);
+      formData.append("image", image);
+      formData.append("userID", userID);
+
+      dispatch(editBlog(id, formData)).then((res) => {
         console.log(res, "res here");
         if (res === EDIT_BLOG_SUCCESS) {
           dispatch(getAllBlogs()).then((res) => {
             if (res === GET_ALL_BLOGS_SUCCESS) {
-              dispatch(userAllBlogs(userId)).then((res) => {
+              dispatch(userAllBlogs(userID)).then((res) => {
                 if (res === USER_ALL_BLOGS_SUCCESS) {
                   navigate("/", { replace: true });
                 }
@@ -83,8 +81,8 @@ const EditBlog = () => {
       <FormControl py={"40px"} m={"auto"} width={"85%"}>
         <FormLabel mb={"-5px"}>Image</FormLabel>
         <Input
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+          type={"file"}
+          onChange={(e) => setImage(e.target.files[0])}
           mb={"15px"}
           variant="flushed"
           placeholder="Image Url"

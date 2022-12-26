@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Box, FormLabel, Input, FormControl, Select, Textarea, Button} from "@chakra-ui/react";
+import {
+  Box,
+  FormLabel,
+  Input,
+  FormControl,
+  Select,
+  Textarea,
+  Button,
+} from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { addBlog, getAllBlogs, userAllBlogs } from "../Redux/AppReducer/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -19,6 +27,7 @@ const AddBlog = () => {
   const [author, setAuthor] = useState("");
   const [image, setImage] = useState("");
   const navigate = useNavigate();
+  console.log(image, "Image Link Khojing");
 
   console.log(title, category, description, minRead, author, image);
   // this user needs because after post we will fetch all blogs and login user blog fectch
@@ -34,7 +43,7 @@ const AddBlog = () => {
       image &&
       userID
     ) {
-      const formData = new formData();
+      const formData = new FormData();
       formData.append("title", title);
       formData.append("category", category);
       formData.append("description", description);
@@ -42,23 +51,23 @@ const AddBlog = () => {
       formData.append("author", author);
       formData.append("image", image);
       formData.append("userID", userID);
-  
-    dispatch(addBlog(formData)).then((res) => {
-      console.log(res, "res here");
-      if (res === ADD_BLOG_SUCCESS) {
-        dispatch(getAllBlogs()).then((res) => {
-          if (res === GET_ALL_BLOGS_SUCCESS) {
-            dispatch(userAllBlogs(userID)).then((res) => {
-              if (res === USER_ALL_BLOGS_SUCCESS) {
-                navigate("/", { replace: true });
-              }
-            });
-          }
-        });
-      }
-    });
+
+      dispatch(addBlog(formData)).then((res) => {
+        console.log(res, "res here");
+        if (res === ADD_BLOG_SUCCESS) {
+          dispatch(getAllBlogs()).then((res) => {
+            if (res === GET_ALL_BLOGS_SUCCESS) {
+              dispatch(userAllBlogs(userID)).then((res) => {
+                if (res === USER_ALL_BLOGS_SUCCESS) {
+                  navigate("/", { replace: true });
+                }
+              });
+            }
+          });
+        }
+      });
+    }
   };
-  }
   return (
     <Box
       m={"auto"}
@@ -72,7 +81,7 @@ const AddBlog = () => {
         <FormLabel mb={"-5px"}>Image</FormLabel>
         <Input
           type={"file"}
-          onChange={(e) => setImage(e.target.file[0])}
+          onChange={(e) => setImage(e.target.files[0])}
           mb={"15px"}
           variant="flushed"
           placeholder="Image Url"

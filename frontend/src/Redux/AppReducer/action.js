@@ -6,7 +6,7 @@ export const getAllBlogs = (params) => (dispatch) => {
   console.log("PARAMS in action", params);
   dispatch({ type: types.GET_ALL_BLOGS_REQUEST });
   return axios
-    .get(`https://lime-strange-boa.cyclic.app/blog`, { params })
+    .get(`https://chartreuse-green-badger-coat.cyclic.app/blog`, { params })
     .then((res) => {
       console.log("RES in get", res.data);
       dispatch({ type: types.GET_ALL_BLOGS_SUCCESS, payload: res.data.blogs });
@@ -22,8 +22,9 @@ export const getAllBlogs = (params) => (dispatch) => {
 export const getBlogById = (id) => (dispatch) => {
   dispatch({ type: types.GET_BLOG_BY_ID_REQUEST });
   return axios
-    .get(`https://lime-strange-boa.cyclic.app/blog/${id}`)
+    .get(`https://chartreuse-green-badger-coat.cyclic.app/blog/${id}`)
     .then((res) => {
+      console.log("RES", res.data)
       dispatch({ type: types.GET_BLOG_BY_ID_SUCCESS, payload: res.data.blog });
       return types.GET_BLOG_BY_ID_SUCCESS;
     })
@@ -37,7 +38,7 @@ export const getBlogById = (id) => (dispatch) => {
 export const userAllBlogs = (id) => (dispatch) => {
   dispatch({ type: types.USER_ALL_BLOGS_REQUEST });
   return axios
-    .get(`https://lime-strange-boa.cyclic.app/user/${id}`)
+    .get(`https://chartreuse-green-badger-coat.cyclic.app/user/${id}`)
     .then((res) => {
       dispatch({
         type: types.USER_ALL_BLOGS_SUCCESS,
@@ -54,7 +55,7 @@ export const userAllBlogs = (id) => (dispatch) => {
 export const deleteBlog = (id) => (dispatch) => {
   dispatch({ type: types.DELETE_BLOG_REQUEST });
   return axios
-    .delete(`https://lime-strange-boa.cyclic.app/blog/${id}`)
+    .delete(`https://chartreuse-green-badger-coat.cyclic.app/blog/${id}`)
     .then((res) => {
       dispatch({ type: types.DELETE_BLOG_SUCCESS });
       return types.DELETE_BLOG_SUCCESS;
@@ -65,10 +66,10 @@ export const deleteBlog = (id) => (dispatch) => {
     });
 };
 
-export const editBlog = (id, payload) => (dispatch) => {
+export const editBlog = (id, formData) => (dispatch) => {
   dispatch({ type: types.EDIT_BLOG_REQUEST });
   return axios
-    .patch(`https://lime-strange-boa.cyclic.app/blog/${id}`, payload)
+    .patch(`https://chartreuse-green-badger-coat.cyclic.app/blog/${id}`, formData)
     .then((res) => {
       dispatch({ type: types.EDIT_BLOG_SUCCESS });
       return types.EDIT_BLOG_SUCCESS;
@@ -79,11 +80,10 @@ export const editBlog = (id, payload) => (dispatch) => {
     });
 };
 
-export const addBlog = (payload) => (dispatch) => {
-  console.log(payload, "payload hai ye");
+export const addBlog = (formData) => (dispatch) => {
   dispatch({ type: types.ADD_BLOG_REQUEST });
   return axios
-    .post("https://lime-strange-boa.cyclic.app/blog", payload)
+    .post("https://chartreuse-green-badger-coat.cyclic.app/blog", formData)
     .then((res) => {
       dispatch({ type: types.ADD_BLOG_SUCCESS });
       return types.ADD_BLOG_SUCCESS;
