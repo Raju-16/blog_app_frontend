@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Box,
-  Button,
-  FormControl,
-  FormLabel,
-  Input,
-  Select,
-  Textarea,
-} from "@chakra-ui/react";
+import { Box, FormLabel, Input, FormControl, Select, Textarea, Button} from "@chakra-ui/react";
 import { useNavigate, useParams } from "react-router-dom";
 import { addBlog, getAllBlogs, userAllBlogs } from "../Redux/AppReducer/action";
 import { useDispatch, useSelector } from "react-redux";
@@ -33,8 +25,6 @@ const AddBlog = () => {
   const userID = useSelector((state) => state.AuthReducer.user.user._id);
 
   const handleOnAdd = () => {
-    console.log("response");
-    console.log(title, category, description, minRead, author, image, userID);
     if (
       title &&
       category &&
@@ -44,36 +34,35 @@ const AddBlog = () => {
       image &&
       userID
     ) {
-      let payload = {
-        title,
-        category,
-        description,
-        minRead,
-        author,
-        image,
-        userID,
-      };
-      dispatch(addBlog(payload)).then((res) => {
-        console.log(res, "res here");
-        if (res === ADD_BLOG_SUCCESS) {
-          dispatch(getAllBlogs()).then((res) => {
-            if (res === GET_ALL_BLOGS_SUCCESS) {
-              dispatch(userAllBlogs(userID)).then((res) => {
-                if (res === USER_ALL_BLOGS_SUCCESS) {
-                  navigate("/", { replace: true });
-                }
-              });
-            }
-          });
-        }
-      });
-    }
+      const formData = new formData();
+      formData.append("title", title);
+      formData.append("category", category);
+      formData.append("description", description);
+      formData.append("minRead", minRead);
+      formData.append("author", author);
+      formData.append("image", image);
+      formData.append("userID", userID);
+  
+    dispatch(addBlog(formData)).then((res) => {
+      console.log(res, "res here");
+      if (res === ADD_BLOG_SUCCESS) {
+        dispatch(getAllBlogs()).then((res) => {
+          if (res === GET_ALL_BLOGS_SUCCESS) {
+            dispatch(userAllBlogs(userID)).then((res) => {
+              if (res === USER_ALL_BLOGS_SUCCESS) {
+                navigate("/", { replace: true });
+              }
+            });
+          }
+        });
+      }
+    });
   };
-
+  }
   return (
     <Box
       m={"auto"}
-      width={"45%"}
+      width={{ base: "90%", sm: "90%", md: "70%", lg: "40%" }}
       border={"1px solid rgb(0,0,0,0.1)"}
       borderRadius={"7px"}
       boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
@@ -82,8 +71,8 @@ const AddBlog = () => {
       <FormControl py={"40px"} m={"auto"} width={"85%"}>
         <FormLabel mb={"-5px"}>Image</FormLabel>
         <Input
-          value={image}
-          onChange={(e) => setImage(e.target.value)}
+          type={"file"}
+          onChange={(e) => setImage(e.target.file[0])}
           mb={"15px"}
           variant="flushed"
           placeholder="Image Url"
@@ -96,11 +85,11 @@ const AddBlog = () => {
           variant="flushed"
           placeholder="Select category"
         >
-          <option>Technology</option>
-          <option>Animals</option>
           <option>Food</option>
-          <option>Entertainment</option>
-          <option>Economy</option>
+          <option>Movies</option>
+          <option>Animal</option>
+          <option>Technology</option>
+          <option>Cricket</option>
           <option>Other</option>
         </Select>
         <FormLabel mb={"-5px"}>Title</FormLabel>

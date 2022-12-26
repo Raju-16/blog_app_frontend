@@ -1,14 +1,18 @@
-import { HStack, Stack, Text, VStack } from "@chakra-ui/react";
+import { Box, Flex } from "@chakra-ui/react";
 import React from "react";
 import Filter_Sort from "../Components/Filter_Sort";
 import AllBlogs from "./AllBlogs";
 
 const Blogs = () => {
   return (
-    <HStack>
-      <Filter_Sort />
-      <AllBlogs />
-    </HStack>
+    <Flex>
+      <Box width={{ base: "15%", sm: "20%", lg: "20%" }}>
+        <Filter_Sort />
+      </Box>
+      <Box width={{ base: "85%", sm: "80%", lg: "80%" }}>
+        <AllBlogs />
+      </Box>
+    </Flex>
   );
 };
 

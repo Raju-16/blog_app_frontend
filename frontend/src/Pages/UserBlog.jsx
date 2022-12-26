@@ -20,36 +20,28 @@ const UserBlog = () => {
     }
   }, [userId, dispatch]);
 
-    return (
-  <Box>
-    {/* <SimpleGrid column={"2"} spacing={"2px"}>
-              {userBlogs.length>0&& userBlogs.map((item)=>{
-                  return <MyBlogCard item={item}/>
-              })}
-          </SimpleGrid> */}
-    <Box marginTop={"2%"}>
-      <Heading fontFamily={"cursive"} textAlign={"center"} color={"blue.400"}>
-        Publish By {name}
-      </Heading>
-      <Grid
-        templateColumns={{
-          base: "repeat(1, 1fr)",
-          sm: "repeat(2, 1fr)",
-          md: "repeat(3, 1fr)",
-          lg: "repeat(4, 1fr)",
-        }}
-        marginTop={"3%"}
-        rowGap={{ base: "2%", sm: "2%", md: "2%", lg: "2%" }}
-        columnGap={"1%"}
-        marginLeft={{ base: "1%", sm: "1%", md: "0.3%" }}
-      >
-        {userBlogs.length > 0 &&
-          userBlogs.map((item) => {
+  return (
+    <Box>
+      <Box marginTop={"2%"}>
+        <Heading textAlign={"center"}>Publish By {name}</Heading>
+        <Grid
+          templateColumns={{
+            base: "repeat(1, 1fr)",
+            sm: "repeat(2, 1fr)",
+            md: "repeat(3, 1fr)",
+            lg: "repeat(3, 1fr)",
+          }}
+          marginTop={"2%"}
+          gap={"2%"}
+          marginLeft={{ base: "1%", sm: "1%", md: "0.3%" }}
+        >
+          {userBlogs.length > 0 &&
+            userBlogs.map((item) => {
               return <UserBlogCard item={item} key={item.id} />;
-          })}
-      </Grid>
+            })}
+        </Grid>
+      </Box>
     </Box>
-  </Box>
-    );
+  );
 };
 export default UserBlog;

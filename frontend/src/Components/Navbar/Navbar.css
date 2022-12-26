@@ -1,90 +1,105 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100&display=swap");
+
 * {
-  margin: 0;
   padding: 0;
+  margin: 0;
   box-sizing: border-box;
 }
 
+li {
+  text-decoration: none;
+  list-style: none;
+}
+a {
+  text-decoration: none;
+}
 .navbar {
+  height: 60px;
+  line-height: 12vh;
+  box-shadow: rgba(50, 50, 93, 0.23) 0 30px 30px -20px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  height: 75px;
   color: white;
   background-color: rgb(71, 93, 128);
-  border-bottom: 1px solid rgb(245, 239, 239);
+  border-bottom: 1px solid white;
+  padding: 3px 10px 3px 10px;
+  font-size: 22px;
 }
 
-.logo {
-  font-size: 28px;
-}
-
-.navLinks {
+.nav-link {
   display: flex;
   justify-content: flex-end;
-  list-style: none;
   width: 75%;
 }
 
-.blogs,
-.addblog,
-.myblogs,
-.signin {
-  text-decoration: none;
+.nav-link li {
   color: white;
-  font-size: 20px;
-  padding: 10px 20px;
+  font-size: 17px;
+  padding: 0 5px;
   margin: 0 10px;
   cursor: pointer;
+  text-transform: capitalize;
+  text-decoration: none;
 }
-
-.menuIcon {
+.nav-link Link {
+  text-decoration: transparent;
+}
+button {
+  border: none;
+  background-color: none;
+  font-size: 20px;
+  background-color: transparent;
+}
+.mobile-menu-icon {
   display: none;
 }
+.login {
+  font-size: 16px;
+  background-color: transparent;
+}
 
-@media screen and (max-width: 780px) {
-  .logo {
-    display: flex;
-    position: absolute;
-    top: 15;
-    left: 35;
-  }
-
-  .navLinks {
+@media (max-width: 768px) {
+  .nav-link {
     display: none;
   }
-
-  .navMobile {
+  .nav-link-mobile {
     position: absolute;
     display: block;
     list-style: none;
-    background-color: teal;
+    box-shadow: rgba(50, 50, 93, 0.23) 0 30px 30px -20px;
     left: 0;
-    top: 75px;
-    transition: all 0.5s ease-out;
+    top: 0;
+    height: 100vh;
+    transition: all 0.5s ease-in-out;
     width: 100%;
-    z-index: 1000;
+    background-color: #4caf50;
+    /* background: linear-gradient(to right, #4299e0, #4caf50); */
+    font-size: 22px;
+    z-index: 1;
   }
-
-  .blogs,
-  .addblog,
-  .myblogs,
-  .signin {
-    color: white;
-    text-align: center;
+  ul li {
     padding: 32px;
     width: 100%;
-    transition: all 0.5s ease-out;
+    transition: all 0.5s ease-in-out;
+    text-align: center;
   }
-
-  .menuIcon {
-    display: block;
+  .mobile-menu-icon {
     position: absolute;
-    font-size: 30px;
-    color: white;
-    background-color: rgb(71, 93, 128);
-    border: none;
-    outline: none;
-    top: 15px;
-    right: 25px;
+    display: block;
+    right: 20px;
+    z-index: 2;
+  }
+  .login {
+    font-size: 22px;
+    background-color: transparent;
+  }
+}
+@media (max-width: 620px) {
+  .mainBoxFilter {
+    z-index: 10;
+  }
+  .BlogListingPage {
+    width: 100%;
   }
 }

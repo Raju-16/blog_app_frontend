@@ -44,13 +44,14 @@ const UserBlogCard = ({ item }) => {
       p={"10px"}
       margin={"auto"}
       boxShadow="rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px"
-      borderRadius={"1%"}
+      borderRadius={"6px"}
       marginBottom={"9%"}
       marginTop={"2%"}
       fontWeight="400"
       textAlign={"justify"}
     >
       <Image
+        borderRadius={"6px"}
         width="100%"
         height={"250px"}
         src={item.image}
@@ -66,12 +67,12 @@ const UserBlogCard = ({ item }) => {
         justifyContent={"space-between"}
       >
         <Link to={`/edit/${item._id}`}>
-          <EditIcon fontSize={"30px"} color={"green.800"} />
+          <EditIcon fontSize={"30px"} color={"blue"} />
         </Link>
         <DeleteIcon
           fontSize={"30px"}
           onClick={(e) => handleDelete(item._id)}
-          color={"green.800"}
+          color={"red"}
         />
       </Flex>
 
@@ -80,9 +81,7 @@ const UserBlogCard = ({ item }) => {
         <Text fontSize={"18px"} fontWeight={500}>
           Category:
         </Text>
-        <Heading fontSize={"18px"} color={"green.600"}>
-          {item.category}
-        </Heading>
+        <Heading fontSize={"18px"}>{item.category}</Heading>
       </Flex>
 
       {/* Author */}
@@ -90,9 +89,7 @@ const UserBlogCard = ({ item }) => {
         <Text fontSize={"18px"} fontWeight={500}>
           Author:
         </Text>
-        <Heading fontSize={"18px"} color={"green.600"}>
-          {name}
-        </Heading>
+        <Heading fontSize={"18px"}>{name}</Heading>
       </Flex>
 
       <Flex>

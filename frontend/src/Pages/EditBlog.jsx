@@ -74,7 +74,7 @@ const EditBlog = () => {
   return (
     <Box
       m={"auto"}
-      width={"45%"}
+      width={{ base: "90%", sm: "90%", md: "70%", lg: "40%" }}
       border={"1px solid rgb(0,0,0,0.1)"}
       borderRadius={"7px"}
       boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
@@ -97,11 +97,11 @@ const EditBlog = () => {
           variant="flushed"
           placeholder="Select category"
         >
-          <option>Technology</option>
-          <option>Animals</option>
           <option>Food</option>
-          <option>Entertainment</option>
-          <option>Economy</option>
+          <option>Movies</option>
+          <option>Animal</option>
+          <option>Technology</option>
+          <option>Cricket</option>
           <option>Other</option>
         </Select>
         <FormLabel mb={"-5px"}>Title</FormLabel>

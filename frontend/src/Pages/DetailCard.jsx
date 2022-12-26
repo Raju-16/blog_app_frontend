@@ -1,74 +1,68 @@
-import { Box, Heading, Image, Text } from "@chakra-ui/react";
+import { Box, Flex, Heading, Image, Text } from "@chakra-ui/react";
 import React from "react";
 
 const DetailCard = ({ item }) => {
+  const calculateDate = () => {
+    let createdAt = item.createdAt;
+    let newStr = "";
+    for (var i = 0; i < 10; i++) {
+      newStr += createdAt[i];
+    }
+    return newStr;
+  };
+
   return (
     <Box
-      width={{ base: "95%", md: "95%", lg: "95%", xl: "95%" }}
-      textAlign={"justify"}
-      maxH={"auto"}
-      margin={"auto"}
-      border={"blue.400"}
-      marginBottom={"9%"}
-      marginTop={"2%"}
+      m={"auto"}
+      p={"10px"}
+      backgroundColor={"gray.100"}
+      borderRadius={"6px"}
+      mt={{ base: "1%", sm: "1%", md: "2%", lg: "3%" }}
+      boxShadow={
+        "rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px"
+      }
+      width={"90%"}
     >
-      <Box marginTop={"2%"}>
-        <Image
-          width={{ base: "80%", lg: "60%" }}
-          height={"250px"}
-          src={item.image}
-          margin="auto"
-        ></Image>
-      </Box>
-
-      <Box
-        border={"1px solid transparent"}
-        px={{ base: "1%", lg: "2%" }}
-        pb={"15px"}
-        mx={{ base: "10%", lg: "20%" }}
-        boxShadow={"rgba(0, 0, 0, 0.24) 0px 3px 8px"}
-      >
-        <Text fontWeight={"700"} marginLeft={"1.9%"} marginTop={"1%"}>
-          Blog
-        </Text>
-        <Heading
-          marginLeft={"2%"}
-          color={"green.600"}
-          marginTop={"1%"}
-          fontSize={"15px"}
+      <Flex display={{ base: "block", sm: "block", md: "flex", lg: "flex" }}>
+        <Box width={{ base: "100%", sm: "100%", md: "40%", lg: "40%" }}>
+          <Image
+            height={"350px"}
+            src={item.image}
+            borderRadius={{ sm: "6px", md: "6px 0px 0px 6px" }}
+          />
+        </Box>
+        <Box
+          height={{ base: "400px", sm: "400px", md: "auto", lg: "auto" }}
+          width={{ base: "100%", sm: "100%", md: "60%", lg: "60%" }}
         >
-          {item.category}
-        </Heading>
-        <Text
-          fontWeight={"400"}
-          fontSize="18px"
-          marginLeft={"2%"}
-          fontFamily="serif"
-          textAlign={"justify-all"}
-        >
-          {item.description}
-        </Text>
-
-        <Heading
-          marginLeft={"70%"}
-          marginTop={"1%"}
-          color={"blue.400"}
-          fontFamily={"cursive"}
-          fontSize={"15px"}
-        >
-          Author:{item.author}
-        </Heading>
-
-        {/* <Heading
-          marginLeft={"57%"}
-          marginTop={"1%"}
-          color={"green.600"}
-          fontFamily={"cursive"}
-          fontSize={"15px"}
-        >
-          CreatedAt:{item.createdAt}
-        </Heading> */}
-      </Box>
+          <Heading my={"10px"} marginTop={"1%"} fontSize={"20px"}>
+            {item.title}
+          </Heading>
+          <Text
+            textAlign={"justify"}
+            height={"auto"}
+            mx={"20px"}
+            marginTop={"1%"}
+            fontSize={"16px"}
+          >
+            {item.description}
+          </Text>
+          <Box position={"absolute"} right={"6%"} bottom={"2%"}>
+            <Text height={"auto"} fontSize={"15px"}>
+              by : {item.author}
+            </Text>
+            <Text height={"auto"} fontSize={"15px"}>
+              {item.category}
+            </Text>
+            <Text height={"auto"} fontSize={"15px"}>
+              Read Time : {item.minRead}
+            </Text>
+            <Text height={"auto"} fontSize={"15px"}>
+              createdAt : {calculateDate(item.createdAt)}
+            </Text>
+          </Box>
+        </Box>
+      </Flex>
     </Box>
   );
 };

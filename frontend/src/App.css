@@ -36,3 +36,12 @@
     transform: rotate(360deg);
   }
 }
+
+.blogCardDesc {
+  white-space: nowrap;
+  width: 90%;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-left: 10px;
+}

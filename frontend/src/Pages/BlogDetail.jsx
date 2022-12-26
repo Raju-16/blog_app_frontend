@@ -1,4 +1,4 @@
-import { Box, Heading } from "@chakra-ui/react";
+import { Box } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -18,16 +18,6 @@ const BlogDetail = () => {
 
   return (
     <Box>
-      {/* <Heading
-        fontFamily={"cursive"}
-        textAlign={"center"}
-        marginTop={"4%"}
-        fontSize={"22px"}
-        marginRight={"2%"}
-        marginLeft={"2%"}
-      >
-        {targetedBlog.meta_data}
-      </Heading> */}
       <Box width="100%" border=" blue.400">
         <DetailCard item={targetedBlog} />
       </Box>

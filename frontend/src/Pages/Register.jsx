@@ -13,7 +13,6 @@ import {
   Avatar,
   AvatarGroup,
   useBreakpointValue,
-  IconProps,
   Icon,
   InputGroup,
   InputRightElement,
@@ -71,7 +70,6 @@ export default function Register() {
           alert("User sucessfully registed");
           navigate("/signin", { replace: true });
         }
-        // will check for already registered user.
         else {
           alert("User is Already registered");
         }

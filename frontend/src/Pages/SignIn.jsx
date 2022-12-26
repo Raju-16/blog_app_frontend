@@ -12,6 +12,7 @@ import {
   Text,
   Spacer,
 } from "@chakra-ui/react";
+import { Link as RouterLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 import { loginUser } from "../Redux/AuthReducer/action";
@@ -30,8 +31,7 @@ export default function SignIn() {
       alert("Please Fill All Credentials....");
     }
     if (email && password) {
-      let payload;
-      payload = {
+      let payload = {
         email,
         password,
       };
@@ -80,7 +80,7 @@ export default function SignIn() {
               <Flex width="100%">
                 <Text ml={"200"}>Don't have an account?</Text>
                 <Spacer />
-                <Link color={"blue.500"}>Register</Link>
+                <RouterLink to={"/register"} color={"blue.500"}>Register</RouterLink>
               </Flex>
             </Stack>
             <Button
