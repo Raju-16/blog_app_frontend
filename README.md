@@ -1,10 +1,9 @@
 # IndIanBlog
 
-This App is for users who is interested in write the blogs and reading the blogs.
+This App is for users who is interested in write the blogs and reading the blog as well as user can do all the CRUD process like read, edit, update, and delete blogs.
 
 
 ## Tech Stack :
-
 The tech stack I used to build this App:-
 
 <img src="https://cdn-icons-png.flaticon.com/512/226/226269.png" width=25/> <span>HTML</span>
@@ -30,11 +29,21 @@ The tech stack I used to build this App:-
 This is the landing page of this website you can read the blogs that an another user write their vision on some perticular topics.
 ![Blog_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Home.png?raw=true)
 
+## Filter By Category
+Using this feature users can filter the blogs based on their category,filtering is done from backend.
+![Filters_Category]
+
+## Sort By Title
+Using this feature users can sort the blogs based on its title sorting is done from backend.
+![Sort_Title]
+
+## BlogDetails Page :
+If user want to read any perticular blog then user can go details page.
+![BlogDetail_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
 
 ## Register Page :
 If user also want to write an article and share own thought about any topic then user must have an account.
 ![Sign_page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
-
 
 ## Login Page :
 If user have an account then user can go to the login page and put their credentials email and password.
@@ -42,17 +51,13 @@ If user have an account then user can go to the login page and put their credent
 
 After log in, user will be able to add his/her blog and can see his/her blog section in userblog section.
 
-## BlogDetails Page :
-If user want to read any perticular blog then user can go details page.
-![BlogDetail_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
+## Add the blogs
+After login user also be able to post their new blogs and also able to delete and edit their posted blog in the past
+![PostBlog_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
 
 ## User Blog page
 After login with right credentials user can also see their posted blogs
 ![UserBlog_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
-
-## Add the blogs
-After login user also be able to post their new blogs and also able to delete and edit their posted blog in the past
-![PostBlog_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Login.png?raw=true)
 
 ## App flow :
 1. npm install
