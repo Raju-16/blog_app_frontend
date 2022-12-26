@@ -8,7 +8,7 @@ import {
   Textarea,
   Button,
 } from "@chakra-ui/react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { addBlog, getAllBlogs, userAllBlogs } from "../Redux/AppReducer/action";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -18,7 +18,6 @@ import {
 } from "../Redux/AppReducer/actionType";
 
 const AddBlog = () => {
-  const { id } = useParams();
   const dispatch = useDispatch();
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
@@ -27,7 +26,6 @@ const AddBlog = () => {
   const [author, setAuthor] = useState("");
   const [image, setImage] = useState("");
   const navigate = useNavigate();
-  console.log(image, "Image Link Khojing");
 
   console.log(title, category, description, minRead, author, image);
   // this user needs because after post we will fetch all blogs and login user blog fectch
