@@ -27,7 +27,7 @@ The tech stack I used to build this App:-
 
 ## Blog Page :
 This is the landing page of this website you can read the blogs that an another user write their vision on some perticular topics.
-![Blog_Page](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Home.png?raw=true)
+![Blog_Page](https://drive.google.com/file/d/1y7KH_eVyb4Pgylzb9JqYOQi5mP18wiCO/view?usp=share_link)
 
 ## Filter By Category
 Using this feature users can filter the blogs based on their category,filtering is done from backend.
