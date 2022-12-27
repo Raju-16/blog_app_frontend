@@ -58,7 +58,7 @@ const DetailCard = ({ item }) => {
               Read Time : {item.minRead}
             </Text>
             <Text height={"auto"} fontSize={"15px"}>
-              createdAt : {calculateDate()}
+              {item.createdAt}
             </Text>
           </Box>
         </Box>

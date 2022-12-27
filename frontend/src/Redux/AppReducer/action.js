@@ -3,12 +3,10 @@ import axios from "axios";
 
 // with this action you can get all the blog list of website.
 export const getAllBlogs = (params) => (dispatch) => {
-  console.log("PARAMS in action", params);
   dispatch({ type: types.GET_ALL_BLOGS_REQUEST });
   return axios
     .get(`https://chartreuse-green-badger-coat.cyclic.app/blog`, { params })
     .then((res) => {
-      console.log("RES in get", res.data);
       dispatch({ type: types.GET_ALL_BLOGS_SUCCESS, payload: res.data.blogs });
       return types.GET_ALL_BLOGS_SUCCESS;
     })
@@ -24,7 +22,6 @@ export const getBlogById = (id) => (dispatch) => {
   return axios
     .get(`https://chartreuse-green-badger-coat.cyclic.app/blog/${id}`)
     .then((res) => {
-      console.log("RES", res.data)
       dispatch({ type: types.GET_BLOG_BY_ID_SUCCESS, payload: res.data.blog });
       return types.GET_BLOG_BY_ID_SUCCESS;
     })

@@ -156,7 +156,7 @@ const Filter_Sort = () => {
             Sort by Title
           </Heading>
           <Stack pl={"10px"} spacing={[1, 5]} direction={["column"]}>
-            <Radio colorScheme="blue" value="titile">
+            <Radio colorScheme="blue" value="title">
               Acc
             </Radio>
             <Radio colorScheme="blue" value="-title">

@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from "react-redux";
-import { Box, SimpleGrid, Grid, Heading } from "@chakra-ui/react";
+import { Box, Grid, Heading } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { userAllBlogs } from "../Redux/AppReducer/action";
 import UserBlogCard from "./UserBlogCard";
@@ -9,10 +9,6 @@ const UserBlog = () => {
   const name = useSelector((state) => state.AuthReducer.user.user.name);
   const userBlogs = useSelector((state) => state.AppReducer.userAllBlogs);
   const dispatch = useDispatch();
-
-  console.log("userId", userId);
-  console.log("name", name);
-  console.log("userBlogs", userBlogs);
 
   useEffect(() => {
     if (userId) {
@@ -37,7 +33,7 @@ const UserBlog = () => {
         >
           {userBlogs.length > 0 &&
             userBlogs.map((item) => {
-              return <UserBlogCard item={item} key={item.id} />;
+              return <UserBlogCard item={item} key={item._id} />;
             })}
         </Grid>
       </Box>

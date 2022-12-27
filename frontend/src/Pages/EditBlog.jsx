@@ -48,13 +48,12 @@ const EditBlog = () => {
       formData.append("userID", userID);
 
       dispatch(editBlog(id, formData)).then((res) => {
-        console.log(res, "res here");
         if (res === EDIT_BLOG_SUCCESS) {
           dispatch(getAllBlogs()).then((res) => {
             if (res === GET_ALL_BLOGS_SUCCESS) {
               dispatch(userAllBlogs(userID)).then((res) => {
                 if (res === USER_ALL_BLOGS_SUCCESS) {
-                  navigate("/", { replace: true });
+                  navigate("/userblogs", { replace: true });
                 }
               });
             }
