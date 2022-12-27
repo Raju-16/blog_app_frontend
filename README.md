@@ -31,11 +31,11 @@ This is the landing page of this website you can read the blogs that an another 
 
 ## Filter By Category
 Using this feature users can filter the blogs based on their category,filtering is done from backend.
-![Filters_Category]
+![Filters_Category](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Home.png?raw=true)
 
 ## Sort By Title
 Using this feature users can sort the blogs based on its title sorting is done from backend.
-![Sort_Title]
+![Sort_Title](https://github.com/Raju-16/react-dishpoll/blob/main/dishpoll/src/Image/Home.png?raw=true)
 
 ## BlogDetails Page :
 If user want to read any perticular blog then user can go details page.
